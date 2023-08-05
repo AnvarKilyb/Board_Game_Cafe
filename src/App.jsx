@@ -4,6 +4,7 @@ import Home from "./components/pages/home/Home";
 import Events from "./components/pages/events/Events";
 import Reservations from "./components/pages/reservations/Reservations";
 import AboutUs from "./components/pages/about/AboutUs";
+import NotFound from "./components/pages/NotFound";
 import { Route, Routes } from "react-router-dom";
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Wrapper>
     </>

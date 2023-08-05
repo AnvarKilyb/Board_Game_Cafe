@@ -4,9 +4,15 @@
 .headerContent{
     padding: 1rem;
     display: flex;
-    gap: 2rem;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+}
+.headerContent nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
 .logo{
     text-decoration: none;
@@ -30,4 +36,51 @@
 
 .li:hover{
     transform: translateY(-1px) scale(1.05);
+}
+.navBtn{
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    display: none;
+    font-size: 2rem;
+    font-weight: 100;
+}
+@media only screen and (max-width: 768px){
+    .navBtn{
+        display: block;
+    }
+    .headerContent nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        background-color: var(--backgroundColorDarker);
+        transition: all .4s linear;
+        transform: translateY(-100vh);
+    }
+    .headerContent .responsiveNav{
+        transform: none;
+    }
+    .responsiveNav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .navCloseBtn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .li a{
+        font-size: 2rem;
+        font-weight: 300;
+    }
 }
