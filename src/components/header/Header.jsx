@@ -11,34 +11,37 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <Wrapper>
-        <div className={styles.headerContent}>
-          <Link to="/" className={styles.logo}>
-            LOGO
-          </Link>
-          <nav ref={navRef}>
-            <ul className={styles.ul}>
-              {/*HERE ADDING LINKS(pages) TO THE NAVBAR*/}
-              <CustomLink to="/">Home</CustomLink>
-              <CustomLink to="/games">Games</CustomLink>
-              <CustomLink to="/events">Events</CustomLink>
-              <CustomLink to="/reservations">Reservations</CustomLink>
-              <CustomLink to="/about">About Us</CustomLink>
-              <button
-                className={`${styles.navBtn} ${styles.navCloseBtn}`}
-                onClick={showNavbar}
-              >
-                <FaTimes />
-              </button>
-            </ul>
-          </nav>
-          <button className={styles.navBtn} onClick={showNavbar}>
-            <FaBars />
-          </button>
-        </div>
-      </Wrapper>
-    </header>
+    <>
+      <div className={styles.emptySpace}></div>
+      <header className={styles.header}>
+        <Wrapper>
+          <div className={styles.headerContent}>
+            <Link to="/" className={styles.logo}>
+              LOGO
+            </Link>
+            <nav ref={navRef}>
+              <ul className={styles.ul}>
+                {/*HERE ADDING LINKS(pages) TO THE NAVBAR*/}
+                <CustomLink to="/">Home</CustomLink>
+                <CustomLink to="/games">Games</CustomLink>
+                <CustomLink to="/events">Events</CustomLink>
+                <CustomLink to="/reservations">Reservations</CustomLink>
+                <CustomLink to="/about">About Us</CustomLink>
+                <button
+                  className={`${styles.navBtn} ${styles.navCloseBtn}`}
+                  onClick={showNavbar}
+                >
+                  <FaTimes />
+                </button>
+              </ul>
+            </nav>
+            <button className={styles.navBtn} onClick={showNavbar}>
+              <FaBars />
+            </button>
+          </div>
+        </Wrapper>
+      </header>
+    </>
   );
 };
 const CustomLink = ({ to, children, ...props }) => {

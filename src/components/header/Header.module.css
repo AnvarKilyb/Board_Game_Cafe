@@ -1,5 +1,8 @@
 .header{
     background-color: var(--backgroundColorDarker);
+    width: 100%;
+    position: fixed;
+    top: 0;
 }
 .headerContent{
     padding: 1rem;
@@ -48,6 +51,9 @@
     font-size: 2rem;
     font-weight: 100;
 }
+.emptySpace{
+    height: 70px;
+}
 @media only screen and (max-width: 768px){
     .navBtn{
         display: block;
@@ -82,5 +88,8 @@
     .li a{
         font-size: 2rem;
         font-weight: 300;
+    }
+    .emptySpace{
+        height: 81px;
     }
 }
