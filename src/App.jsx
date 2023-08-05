@@ -19,7 +19,6 @@ function App() {
             in the pages folder
             */}
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<Home />} />
           <Route path="/events" element={<Events />} />
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/about" element={<AboutUs />} />
