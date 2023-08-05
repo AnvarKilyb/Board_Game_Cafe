@@ -1,0 +1,33 @@
+.header{
+    background-color: var(--backgroundColorDarker);
+}
+.headerContent{
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    text-decoration: none;
+    color: var(--textColor);
+    font-size: 2rem;
+    font-weight: 400;
+}
+.ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.li{
+    transition: all .2s linear;
+}
+.li a{
+    text-decoration: none;
+    color: var(--textColor);
+    font-size: 1.25rem; 
+}
+
+.li:hover{
+    transform: translateY(-1px) scale(1.05);
+}

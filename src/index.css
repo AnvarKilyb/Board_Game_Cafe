@@ -1,0 +1,15 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --backgroundColor: rgb(240, 231, 219);
+  --backgroundColorDarker: rgb(228, 213, 193);
+  --textColor: rgb(21, 37, 63);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+}
