@@ -1,9 +1,9 @@
 import Header from "./components/header/Header";
 import Wrapper from "./UI/Wrapper";
-import Home from "./components/pages/Home";
-import Events from "./components/pages/Events";
-import Reservations from "./components/pages/Reservations";
-import AboutUs from "./components/pages/AboutUs";
+import Home from "./components/pages/home/Home";
+import Events from "./components/pages/events/Events";
+import Reservations from "./components/pages/reservations/Reservations";
+import AboutUs from "./components/pages/about/AboutUs";
 import { Route, Routes } from "react-router-dom";
 function App() {
   return (
