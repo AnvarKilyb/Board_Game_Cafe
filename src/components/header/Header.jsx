@@ -10,6 +10,7 @@ const Header = () => {
             LOGO
           </Link>
           <ul className={styles.ul}>
+            {/*HERE ADDING LINKS(pages) TO THE NAVBAR*/}
             <CustomLink to="/events">Events</CustomLink>
             <CustomLink to="/reservations">Reservations</CustomLink>
             <CustomLink to="/about">About Us</CustomLink>
