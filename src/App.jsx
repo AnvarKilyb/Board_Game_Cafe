@@ -2,6 +2,7 @@ import Header from "./components/header/Header";
 import Wrapper from "./UI/Wrapper";
 import Home from "./components/pages/home/Home";
 import Events from "./components/pages/events/Events";
+import Games from "./components/pages/games/Games";
 import Reservations from "./components/pages/reservations/Reservations";
 import AboutUs from "./components/pages/about/AboutUs";
 import NotFound from "./components/pages/NotFound";
@@ -20,6 +21,7 @@ function App() {
             in the pages folder
             */}
           <Route path="/" element={<Home />} />
+          <Route path="/games" element={<Games />} />
           <Route path="/events" element={<Events />} />
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/about" element={<AboutUs />} />
