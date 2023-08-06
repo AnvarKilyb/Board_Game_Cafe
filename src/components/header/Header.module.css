@@ -23,6 +23,10 @@
     color: var(--textColor);
     font-size: 2rem;
     font-weight: 400;
+    transition: all .2s linear;
+}
+.logo:hover{
+    transform: scale(1.05);
 }
 .logo span{
     color: var(--redColor);
@@ -43,6 +47,12 @@
 
 .li:hover{
     transform: translateY(-1px) scale(1.05);
+}
+.li a{
+    transition: all .2s linear;
+}
+.li:hover a{
+    color: var(--redColor);
 }
 .navBtn{
     padding: 5px;
