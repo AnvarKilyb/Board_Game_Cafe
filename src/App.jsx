@@ -11,23 +11,22 @@ function App() {
   return (
     <>
       <Header />
-      <Wrapper>
-        <Routes>
-          {/*Pages availiable at: components->pages*/}
-          {/*If you want to configure navbar (Add or remove page),
+
+      <Routes>
+        {/*Pages availiable at: components->pages*/}
+        {/*If you want to configure navbar (Add or remove page),
             Add <Route> with needed path below this comment and 
             Add <CustomLink> with the same path inside <ul> 
             inside Header component, AND DON'T FORGET to create component
             in the pages folder
             */}
-          <Route path="/" element={<Home />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/reservations" element={<Reservations />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Wrapper>
+        <Route path="/" element={<Home />} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/reservations" element={<Reservations />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }

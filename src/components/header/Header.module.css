@@ -1,5 +1,9 @@
 .header{
     background-color: var(--backgroundColorDarker);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
 }
 .headerContent{
     padding: 1rem;
@@ -19,6 +23,13 @@
     color: var(--textColor);
     font-size: 2rem;
     font-weight: 400;
+    transition: all .2s linear;
+}
+.logo:hover{
+    transform: scale(1.05);
+}
+.logo span{
+    color: var(--redColor);
 }
 .ul{
     display: flex;
@@ -37,6 +48,12 @@
 .li:hover{
     transform: translateY(-1px) scale(1.05);
 }
+.li a{
+    transition: all .2s linear;
+}
+.li:hover a{
+    color: var(--redColor);
+}
 .navBtn{
     padding: 5px;
     cursor: pointer;
@@ -47,6 +64,13 @@
     display: none;
     font-size: 2rem;
     font-weight: 100;
+    transition: all .2s linear;
+}
+.navBtn:hover{
+    color: var(--redColor);
+}
+.emptySpace{
+    height: 70px;
 }
 @media only screen and (max-width: 768px){
     .navBtn{
@@ -65,9 +89,11 @@
         background-color: var(--backgroundColorDarker);
         transition: all .4s linear;
         transform: translateY(-100vh);
+        z-index: 9999;
     }
     .headerContent .responsiveNav{
         transform: none;
+    
     }
     .responsiveNav ul{
         display: flex;
@@ -82,5 +108,8 @@
     .li a{
         font-size: 2rem;
         font-weight: 300;
+    }
+    .emptySpace{
+        height: 81px;
     }
 }
