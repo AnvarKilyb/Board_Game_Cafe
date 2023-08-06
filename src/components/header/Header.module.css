@@ -64,6 +64,10 @@
     display: none;
     font-size: 2rem;
     font-weight: 100;
+    transition: all .2s linear;
+}
+.navBtn:hover{
+    color: var(--redColor);
 }
 .emptySpace{
     height: 70px;
