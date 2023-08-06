@@ -17,7 +17,7 @@ const Header = () => {
         <Wrapper>
           <div className={styles.headerContent}>
             <Link to="/" className={styles.logo}>
-              LOGO
+              <span>G</span>Cafe
             </Link>
             <nav ref={navRef}>
               <ul className={styles.ul}>

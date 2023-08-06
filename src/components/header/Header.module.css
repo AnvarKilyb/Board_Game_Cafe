@@ -24,6 +24,9 @@
     font-size: 2rem;
     font-weight: 400;
 }
+.logo span{
+    color: var(--redColor);
+}
 .ul{
     display: flex;
     gap: 2rem;
