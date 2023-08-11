@@ -1,0 +1,135 @@
+.formWrapper{
+    
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+}
+.form{
+    padding: 2rem 0rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.form input{
+    border-radius: .5rem;
+    
+}
+label{
+    color: var();
+}
+.formFirstLine{
+    display: flex;
+    flex-direction: column;
+}
+.formFirstLineOne{
+    display: flex;
+    flex-direction: column;
+}
+.formFirstLineTwo{
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    padding: .5rem;
+}
+.numberLabel{
+    margin-top: 1rem;
+}
+.number{
+    padding: .5rem;
+}
+.formSecondLine{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.formSecondLine input{
+    padding: .5rem;
+}
+.formSecondLineOne, .formSecondLineTwo{
+    display: flex;
+    flex-direction: column;
+}
+.timeAndAdvice{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.timeAndAdvice input{
+    margin-top: 2rem;
+    padding: .5rem;
+    width: 100%;
+    height: 6rem;
+}
+.timeCells{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-right: -1rem;
+}
+.timeCell{
+    width: calc(100% / 4 - 1rem);
+    padding: .5rem 0;
+    background-color: rgb(55, 55, 55);
+    border-radius: .5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+.timeCell:hover{
+    background-color: rgb(24, 24, 24);
+}
+.button {
+    cursor: pointer;
+    width: fit-content;
+    align-self: flex-end;
+    background-color: transparent;
+    color: var(--redColor);
+    border: 1px solid var(--redColor);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    padding: .5rem 2rem;
+    gap: 1rem;
+    fill: var(--redColor);
+    text-decoration: none;
+    transition: all .2s linear;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+.button:hover{
+    transform: scale(1.05);
+}
+@media only screen and (min-width: 768px){
+   
+    .formFirstLine{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+    .numberLabel{
+        margin-top: 0;
+    }
+    .formFirstLineOne{
+        flex: 1;
+    }
+    .formFirstLineTwo{
+        flex: 1;
+    }
+    .formSecondLine{
+        gap: 2rem;
+    }
+    .formSecondLine input{
+        width: 50%;
+    }
+    .formSecondLineOne{
+        flex: 1;
+    }
+    .formSecondLineTwo{
+        flex: 1;
+    }
+    .timeCell{
+        width: calc(100% / 6 - 1rem);
+    }
+}

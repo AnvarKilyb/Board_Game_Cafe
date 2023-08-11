@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "dish",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dishName": {
+      "type": "string"
+    },
+    "dishDescription": {
+      "type": "text"
+    },
+    "price": {
+      "type": "integer"
+    }
+  }
+}

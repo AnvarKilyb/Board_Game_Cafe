@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'LogoFont'; /* Define the font family name */
+    src: url('../../../assets/logoFont.otf') format('opentype'); /* Specify the path to the font file */
+  }
+.menu{
+    padding: 0rem 1rem;
+    padding-bottom: 6rem;
+}
+.categoryName{
+    font-size: 2rem;
+    font-family: 'LogoFont';
+    font-weight: 100;
+    color: var(--redColor);
+}
+.category{
+    margin-top: 2rem;
+    list-style: none;
+}
+.categoryContent {
+    margin-top: 2rem;
+}
+.elem{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px dotted var(--textColor);
+    padding: 1rem;
+}
+.elem h4{
+    font-size: 1.5rem;
+}
+.elem p {
+    text-align: start;
+    font-size: 1rem;
+    max-width: 600px;
+}
+.elem span {
+    font-size: 1.125rem;
+}
+@media only screen and (min-width: 768px){
+    .category{
+        margin-top: 4rem;
+    }
+}
