@@ -6,7 +6,7 @@ const Form = () => {
       <form className={styles.form}>
         <div className={styles.formFirstLine}>
           <div className={styles.formFirstLineOne}>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name"></label>
             <input
               id="name"
               type="text"
@@ -15,9 +15,7 @@ const Form = () => {
             />
           </div>
           <div className={styles.formFirstLineTwo}>
-            <label htmlFor="number" className={styles.numberLabel}>
-              Telephone
-            </label>
+            <label htmlFor="number" className={styles.numberLabel}></label>
             <input
               id="number"
               type="tel"
@@ -28,16 +26,16 @@ const Form = () => {
         </div>
         <div className={styles.formSecondLine}>
           <div className={styles.formSecondLineOne}>
-            <label htmlFor="date">Date</label>
+            <label htmlFor="date"></label>
             <input id="date" type="date" className={styles.date} />
           </div>
           <div className={styles.formSecondLineTwo}>
-            <label htmlFor="amount">Amount</label>
+            <label htmlFor="amount"></label>
             <input
               id="amount"
               type="number"
               min="1"
-              placeholder="2"
+              placeholder="2 person"
               className={styles.amount}
             />
           </div>
