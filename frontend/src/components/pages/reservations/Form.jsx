@@ -1,5 +1,6 @@
 import styles from "./Form.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 const Form = (props) => {
   const [lastClickedCell, setLastClickedCell] = useState("");
   const [badInput, setBadInput] = useState({
@@ -9,6 +10,15 @@ const Form = (props) => {
     badPeople: false,
     badTime: false,
   });
+
+  useEffect(() => {
+    if (props.data.name) setBadInputFunc("badName", false);
+    if (props.data.telNumber) setBadInputFunc("badTelephone", false);
+    if (props.data.date) setBadInputFunc("badDate", false);
+    if (props.data.peopleAmount) setBadInputFunc("badPeople", false);
+    if (props.data.time) setBadInputFunc("badTime", false);
+  }, [props.data]);
+
   const handleTimeCellClick = (value) => {
     setLastClickedCell(value);
     props.dispatch({ type: "TIME_CHANGE", value: value });
@@ -34,9 +44,51 @@ const Form = (props) => {
   const noteChangeHandler = (event) => {
     props.dispatch({ type: "NOTE_CHANGE", value: event.target.value });
   };
+
+  const setBadInputFunc = (prop, value) => {
+    setBadInput((prevState) => {
+      return {
+        ...prevState,
+        [prop]: value,
+      };
+    });
+  };
+  const validateInput = () => {
+    if (props.data.name == "") {
+      setBadInputFunc("badName", true);
+    } else {
+      setBadInputFunc("badName", false);
+    }
+
+    if (props.data.telNumber == "") {
+      setBadInputFunc("badTelephone", true);
+    } else {
+      setBadInputFunc("badTelephone", false);
+    }
+
+    if (props.data.time == "") {
+      setBadInputFunc("badTime", true);
+    } else {
+      setBadInputFunc("badTime", false);
+    }
+
+    if (props.data.peopleAmount == "") {
+      setBadInputFunc("badPeople", true);
+    } else {
+      setBadInputFunc("badPeople", false);
+    }
+
+    if (props.data.date == "") {
+      setBadInputFunc("badDate", true);
+    } else {
+      setBadInputFunc("badDate", false);
+    }
+  };
+
   const onSubmitHandler = (event) => {
     console.log(props.data);
     event.preventDefault();
+    validateInput();
     //props.dispatch({ type: "RESET" }); SHOULD CLEAR AT THE POPUP
     //setLastClickedCell("");
   };
@@ -49,7 +101,9 @@ const Form = (props) => {
             <input
               id="name"
               type="text"
-              className={styles.name}
+              className={
+                badInput.badName ? `${styles.name} ${styles.err}` : styles.name
+              }
               placeholder="Enter your name"
               onChange={nameChangeHandler}
               value={props.data.name}
@@ -60,7 +114,11 @@ const Form = (props) => {
             <input
               id="number"
               type="tel"
-              className={styles.number}
+              className={
+                badInput.badTelephone
+                  ? `${styles.number} ${styles.err}`
+                  : styles.number
+              }
               placeholder="Enter your telephone"
               onChange={telNumberChangeHandler}
               value={props.data.telNumber}
@@ -73,7 +131,9 @@ const Form = (props) => {
             <input
               id="date"
               type="date"
-              className={styles.date}
+              className={
+                badInput.badDate ? `${styles.date} ${styles.err}` : styles.date
+              }
               onChange={dateChangeHandler}
               value={props.data.date}
             />
@@ -85,7 +145,11 @@ const Form = (props) => {
               type="number"
               min="1"
               placeholder="2 person"
-              className={styles.amount}
+              className={
+                badInput.badPeople
+                  ? `${styles.amount} ${styles.err}`
+                  : styles.amount
+              }
               onChange={peopleAmountChangeHandler}
               value={props.data.peopleAmount}
             />
@@ -123,7 +187,9 @@ const Form = (props) => {
             value={props.data.note}
           />
         </div>
-        <button className={styles.button}>SUBMIT</button>
+        <button className={styles.button} type="submit">
+          SUBMIT
+        </button>
       </form>
     </div>
   );

@@ -34,6 +34,10 @@ label{
 .name{
     padding: .5rem;
 }
+.err{
+    background-color: rgb(255, 142, 142);
+    border: 2px solid red;
+}
 .numberLabel{
     margin-top: 1rem;
 }
