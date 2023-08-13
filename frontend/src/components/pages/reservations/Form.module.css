@@ -77,9 +77,9 @@ label{
     border: 1px solid var(--textColor);
     text-align: center;
     cursor: pointer;
-    transition: all .2s linear;
 }
-.timeCell:hover{
+
+.clicked {
     background-color: var(--redColor);
 }
 .button {

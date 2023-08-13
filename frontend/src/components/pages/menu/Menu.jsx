@@ -24,8 +24,6 @@ const Menu = () => {
         }),
       };
     });
-
-    console.log(transformedData);
     setCategories(transformedData);
   }, []);
 
@@ -43,7 +41,7 @@ const Menu = () => {
               <div className={styles.categoryContent}>
                 {elem.items.map((el, index) => {
                   return (
-                    <li className={styles.elem}>
+                    <li className={styles.elem} key={index}>
                       <div>
                         <h4>{el.dishName}</h4>
                         <p>{el.dishDescription}</p>

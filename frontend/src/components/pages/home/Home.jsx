@@ -33,7 +33,7 @@ const Home = () => {
               <text
                 x="0"
                 y="16"
-                font-family="'LogoFont'"
+                fontFamily="'LogoFont'"
                 textLength="100%"
                 lengthAdjust="spacingAndGlyphs"
               >
