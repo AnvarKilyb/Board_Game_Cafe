@@ -1,8 +1,10 @@
 import styles from "./Form.module.css";
+import Popup from "./Popup";
 import { useState, useEffect } from "react";
 
 const Form = (props) => {
   const [lastClickedCell, setLastClickedCell] = useState("");
+  const [showData, setShowData] = useState(false);
   const [badInput, setBadInput] = useState({
     badName: false,
     badTelephone: false,
@@ -89,11 +91,28 @@ const Form = (props) => {
     console.log(props.data);
     event.preventDefault();
     validateInput();
-    //props.dispatch({ type: "RESET" }); SHOULD CLEAR AT THE POPUP
+    if (
+      props.data.name &&
+      props.data.telNumber &&
+      props.data.time &&
+      props.data.peopleAmount &&
+      props.data.date
+    ) {
+      setShowData(true);
+    }
+    //props.dispatch({ type: "RESET" });
     //setLastClickedCell("");
   };
   return (
     <div className={styles.formWrapper}>
+      {showData && (
+        <Popup
+          data={props.data}
+          onEdit={setShowData}
+          dispatch={props.dispatch}
+          setCell={setLastClickedCell}
+        />
+      )}
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <div className={styles.formFirstLine}>
           <div className={styles.formFirstLineOne}>
@@ -179,6 +198,9 @@ const Form = (props) => {
               );
             })}
           </div>
+          {badInput.badTime && (
+            <p className={styles.errText}>Please choose a time!</p>
+          )}
           <input
             type="text"
             className={styles.advice}

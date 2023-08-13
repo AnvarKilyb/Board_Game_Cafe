@@ -43,7 +43,6 @@ const reducer = (state, action) => {
     return {
       name: "",
       telNumber: "",
-      telNumberIsValid: "",
       date: "",
       peopleAmount: "",
       time: "",
@@ -56,7 +55,6 @@ const Reservations = () => {
   const [formData, dispatchFormData] = useReducer(reducer, {
     name: "",
     telNumber: "",
-    telNumberIsValid: "",
     date: "",
     peopleAmount: "",
     time: "",

@@ -38,6 +38,12 @@ label{
     background-color: rgb(255, 142, 142);
     border: 2px solid red;
 }
+.errText{
+    font-size: 1rem;
+    text-align: center;
+    color: var(--redColor);
+    align-self: center;
+}
 .numberLabel{
     margin-top: 1rem;
 }
