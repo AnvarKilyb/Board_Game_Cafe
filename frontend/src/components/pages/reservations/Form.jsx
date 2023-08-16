@@ -2,10 +2,12 @@ import styles from "./Form.module.css";
 import Popup from "./Popup";
 import { useState, useEffect } from "react";
 import useInput from "../../../hooks/useInput";
+import Confirmation from "./Confirmation";
 const Form = () => {
   const [lastClickedCell, setLastClickedCell] = useState("");
   const [showData, setShowData] = useState(false);
   const [timeHasError, setTimeHasError] = useState(false);
+  const [showBookingConfirm, setShowBookingConfirm] = useState(false);
   useEffect(() => {
     if (lastClickedCell !== "") {
       setTimeHasError(false);
@@ -106,8 +108,10 @@ const Form = () => {
             resetPeopleInput,
             setLastClickedCell,
           }}
+          onConfirm={setShowBookingConfirm}
         />
       )}
+      {showBookingConfirm && <Confirmation onClose={setShowBookingConfirm} />}
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <div className={styles.formFirstLine}>
           <div className={styles.formFirstLineOne}>

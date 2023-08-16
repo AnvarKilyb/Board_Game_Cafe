@@ -1,4 +1,4 @@
-.errorWrapper{
+.confirmWrapper{
     position: fixed;
     top: 0;
     left: 0;
@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 9999;
 }
-.errorPopup{
+.confirmPopup{
     position: absolute;
     width: 80%;
     top: 30%;
@@ -17,22 +17,23 @@
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     color: black;
+    z-index: 9999;
 }
-.errorPopup h2{
+.confirmPopup h2{
+    text-align: center;
+    font-weight: 400;
     font-size: 2rem;
     color: var(--redColor);
-    font-weight: 400;
 }
-.buttons{
+.confirmPopup p{
     margin-top: 2rem;
-    width: 100%;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+    text-align: center;
 }
-.buttons button{
+
+.confirmPopup button{
+    margin-top: 2rem;
     padding: .5rem 1rem;
     cursor: pointer;
     border: 1px solid var(--redColor);
