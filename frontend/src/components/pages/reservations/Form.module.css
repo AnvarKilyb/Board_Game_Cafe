@@ -96,8 +96,8 @@ label{
     cursor: pointer;
     width: 100%;
     background-color: var(--redColor);
+    border: none;
     color: var(--textColor);
-    border: 1px solid var(--redColor);
     padding: .75rem 0rem;
     text-decoration: none;
     margin-top: 2rem;

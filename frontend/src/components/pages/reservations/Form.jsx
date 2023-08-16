@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import Popup from "./Popup";
 import { useState, useEffect } from "react";
 import useInput from "../../../hooks/useInput";
-const Form = (props) => {
+const Form = () => {
   const [lastClickedCell, setLastClickedCell] = useState("");
   const [showData, setShowData] = useState(false);
   const [timeHasError, setTimeHasError] = useState(false);
@@ -18,6 +18,7 @@ const Form = (props) => {
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
     reset: resetNameInput,
+    setIsTouched: setNameIsTouched,
   } = useInput((value) => {
     return value.trim() !== "";
   });
@@ -29,6 +30,7 @@ const Form = (props) => {
     valueChangeHandler: telChangeHandler,
     inputBlurHandler: telBlurHandler,
     reset: resetTelInput,
+    setIsTouched: setTelIsTouched,
   } = useInput((value) => {
     return value.trim() !== "";
   });
@@ -40,6 +42,7 @@ const Form = (props) => {
     valueChangeHandler: dateChangeHandler,
     inputBlurHandler: dateBlurHandler,
     reset: resetDateInput,
+    setIsTouched: setDateIsTouched,
   } = useInput((value) => {
     return value.trim() !== "";
   });
@@ -51,6 +54,7 @@ const Form = (props) => {
     valueChangeHandler: peopleChangeHandler,
     inputBlurHandler: peopleBlurHandler,
     reset: resetPeopleInput,
+    setIsTouched: setPeopleIsTouched,
   } = useInput((value) => {
     return value.trim() !== "";
   });
@@ -72,9 +76,12 @@ const Form = (props) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(props.data);
-
     if (!formIsValid) {
+      setNameIsTouched(true);
+      setTelIsTouched(true);
+      setDateIsTouched(true);
+      setPeopleIsTouched(true);
+      if (lastClickedCell === "") setTimeHasError(true);
       return;
     }
     setShowData(true);
@@ -188,7 +195,7 @@ const Form = (props) => {
               );
             })}
           </div>
-          {!lastClickedCell && (
+          {timeHasError && (
             <p className={styles.errText}>Please choose a time!</p>
           )}
           <input
