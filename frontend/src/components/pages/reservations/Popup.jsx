@@ -3,8 +3,12 @@ import styles from "./Popup.module.css";
 const Popup = (props) => {
   const submitButtonHandler = () => {
     //HERE SENT DATA TO THE BACKEND
-    props.dispatch({ type: "RESET" });
-    props.setCell("");
+    props.reset.setLastClickedCell("");
+    props.reset.resetNameInput();
+    props.reset.resetTelInput();
+    props.reset.resetDateInput();
+    props.reset.resetPeopleInput();
+
     props.onEdit(false);
   };
   const editButtonHandler = () => {
@@ -13,11 +17,11 @@ const Popup = (props) => {
   return (
     <div className={styles.errorWrapper}>
       <div className={styles.errorPopup}>
-        <p>Name: {props.data.name}</p>
-        <p>Telephone: {props.data.telNumber}</p>
-        <p>Date: {props.data.date}</p>
-        <p>Time: {props.data.time}</p>
-        <p>People: {props.data.peopleAmount}</p>
+        <p>Name: {props.data.enteredName}</p>
+        <p>Telephone: {props.data.enteredTel}</p>
+        <p>Date: {props.data.enteredDate}</p>
+        <p>Time: {props.data.lastClickedCell}</p>
+        <p>People: {props.data.enteredPeople}</p>
         <div className={styles.buttons}>
           <button onClick={editButtonHandler}>EDIT</button>
           <button onClick={submitButtonHandler}>SUBMIT</button>

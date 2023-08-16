@@ -1,116 +1,104 @@
 import styles from "./Form.module.css";
 import Popup from "./Popup";
 import { useState, useEffect } from "react";
-
+import useInput from "../../../hooks/useInput";
 const Form = (props) => {
   const [lastClickedCell, setLastClickedCell] = useState("");
   const [showData, setShowData] = useState(false);
-  const [badInput, setBadInput] = useState({
-    badName: false,
-    badTelephone: false,
-    badDate: false,
-    badPeople: false,
-    badTime: false,
+  const [timeHasError, setTimeHasError] = useState(false);
+  useEffect(() => {
+    if (lastClickedCell !== "") {
+      setTimeHasError(false);
+    }
+  }, [lastClickedCell]);
+  const {
+    value: enteredName,
+    isValid: enteredNameIsValid,
+    hasError: nameHasError,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetNameInput,
+  } = useInput((value) => {
+    return value.trim() !== "";
   });
 
-  useEffect(() => {
-    if (props.data.name) setBadInputFunc("badName", false);
-    if (props.data.telNumber) setBadInputFunc("badTelephone", false);
-    if (props.data.date) setBadInputFunc("badDate", false);
-    if (props.data.peopleAmount) setBadInputFunc("badPeople", false);
-    if (props.data.time) setBadInputFunc("badTime", false);
-  }, [props.data]);
+  const {
+    value: enteredTel,
+    isValid: enteredTelIsValid,
+    hasError: telHasError,
+    valueChangeHandler: telChangeHandler,
+    inputBlurHandler: telBlurHandler,
+    reset: resetTelInput,
+  } = useInput((value) => {
+    return value.trim() !== "";
+  });
+
+  const {
+    value: enteredDate,
+    isValid: enteredDateIsValid,
+    hasError: dateHasError,
+    valueChangeHandler: dateChangeHandler,
+    inputBlurHandler: dateBlurHandler,
+    reset: resetDateInput,
+  } = useInput((value) => {
+    return value.trim() !== "";
+  });
+
+  const {
+    value: enteredPeople,
+    isValid: enteredPeopleIsValid,
+    hasError: peopleHasError,
+    valueChangeHandler: peopleChangeHandler,
+    inputBlurHandler: peopleBlurHandler,
+    reset: resetPeopleInput,
+  } = useInput((value) => {
+    return value.trim() !== "";
+  });
+
+  let formIsValid = false;
+  if (
+    enteredNameIsValid &&
+    enteredTelIsValid &&
+    enteredDateIsValid &&
+    enteredPeopleIsValid &&
+    lastClickedCell !== ""
+  ) {
+    formIsValid = true;
+  }
 
   const handleTimeCellClick = (value) => {
     setLastClickedCell(value);
-    props.dispatch({ type: "TIME_CHANGE", value: value });
-  };
-  const nameChangeHandler = (event) => {
-    props.dispatch({ type: "NAME_CHANGE", value: event.target.value });
-  };
-  const telNumberChangeHandler = (event) => {
-    props.dispatch({
-      type: "MOBILE_CHANGE",
-      value: event.target.value,
-    });
-  };
-  const dateChangeHandler = (event) => {
-    props.dispatch({ type: "DATE_CHANGE", value: event.target.value });
-  };
-  const peopleAmountChangeHandler = (event) => {
-    props.dispatch({
-      type: "PEOPLE_CHANGE",
-      value: event.target.value,
-    });
-  };
-  const noteChangeHandler = (event) => {
-    props.dispatch({ type: "NOTE_CHANGE", value: event.target.value });
-  };
-
-  const setBadInputFunc = (prop, value) => {
-    setBadInput((prevState) => {
-      return {
-        ...prevState,
-        [prop]: value,
-      };
-    });
-  };
-  const validateInput = () => {
-    if (props.data.name == "") {
-      setBadInputFunc("badName", true);
-    } else {
-      setBadInputFunc("badName", false);
-    }
-
-    if (props.data.telNumber == "") {
-      setBadInputFunc("badTelephone", true);
-    } else {
-      setBadInputFunc("badTelephone", false);
-    }
-
-    if (props.data.time == "") {
-      setBadInputFunc("badTime", true);
-    } else {
-      setBadInputFunc("badTime", false);
-    }
-
-    if (props.data.peopleAmount == "") {
-      setBadInputFunc("badPeople", true);
-    } else {
-      setBadInputFunc("badPeople", false);
-    }
-
-    if (props.data.date == "") {
-      setBadInputFunc("badDate", true);
-    } else {
-      setBadInputFunc("badDate", false);
-    }
   };
 
   const onSubmitHandler = (event) => {
-    console.log(props.data);
     event.preventDefault();
-    validateInput();
-    if (
-      props.data.name &&
-      props.data.telNumber &&
-      props.data.time &&
-      props.data.peopleAmount &&
-      props.data.date
-    ) {
-      setShowData(true);
+    console.log(props.data);
+
+    if (!formIsValid) {
+      return;
     }
-    //props.dispatch({ type: "RESET" });
-    //setLastClickedCell("");
+    setShowData(true);
   };
+
   return (
     <div className={styles.formWrapper}>
       {showData && (
         <Popup
-          data={props.data}
           onEdit={setShowData}
-          dispatch={props.dispatch}
-          setCell={setLastClickedCell}
+          data={{
+            enteredName,
+            enteredTel,
+            enteredDate,
+            enteredPeople,
+            lastClickedCell,
+          }}
+          reset={{
+            resetNameInput,
+            resetTelInput,
+            resetDateInput,
+            resetPeopleInput,
+            setLastClickedCell,
+          }}
         />
       )}
       <form className={styles.form} onSubmit={onSubmitHandler}>
@@ -121,11 +109,12 @@ const Form = (props) => {
               id="name"
               type="text"
               className={
-                badInput.badName ? `${styles.name} ${styles.err}` : styles.name
+                nameHasError ? `${styles.name} ${styles.err}` : styles.name
               }
-              placeholder="Enter your name"
               onChange={nameChangeHandler}
-              value={props.data.name}
+              onBlur={nameBlurHandler}
+              value={enteredName}
+              placeholder="Enter your name"
             />
           </div>
           <div className={styles.formFirstLineTwo}>
@@ -134,13 +123,12 @@ const Form = (props) => {
               id="number"
               type="tel"
               className={
-                badInput.badTelephone
-                  ? `${styles.number} ${styles.err}`
-                  : styles.number
+                telHasError ? `${styles.number} ${styles.err}` : styles.number
               }
+              onChange={telChangeHandler}
+              onBlur={telBlurHandler}
+              value={enteredTel}
               placeholder="Enter your telephone"
-              onChange={telNumberChangeHandler}
-              value={props.data.telNumber}
             />
           </div>
         </div>
@@ -151,10 +139,11 @@ const Form = (props) => {
               id="date"
               type="date"
               className={
-                badInput.badDate ? `${styles.date} ${styles.err}` : styles.date
+                dateHasError ? `${styles.date} ${styles.err}` : styles.date
               }
               onChange={dateChangeHandler}
-              value={props.data.date}
+              onBlur={dateBlurHandler}
+              value={enteredDate}
             />
           </div>
           <div className={styles.formSecondLineTwo}>
@@ -164,13 +153,14 @@ const Form = (props) => {
               type="number"
               min="1"
               placeholder="2 person"
+              onChange={peopleChangeHandler}
+              onBlur={peopleBlurHandler}
+              value={enteredPeople}
               className={
-                badInput.badPeople
+                peopleHasError
                   ? `${styles.amount} ${styles.err}`
                   : styles.amount
               }
-              onChange={peopleAmountChangeHandler}
-              value={props.data.peopleAmount}
             />
           </div>
         </div>
@@ -198,15 +188,13 @@ const Form = (props) => {
               );
             })}
           </div>
-          {badInput.badTime && (
+          {!lastClickedCell && (
             <p className={styles.errText}>Please choose a time!</p>
           )}
           <input
             type="text"
             className={styles.advice}
             placeholder="Any booking requests"
-            onChange={noteChangeHandler}
-            value={props.data.note}
           />
         </div>
         <button className={styles.button} type="submit">
