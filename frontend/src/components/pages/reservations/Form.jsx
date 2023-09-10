@@ -3,6 +3,7 @@ import Popup from "./Popup";
 import { useState, useEffect } from "react";
 import useInput from "../../../hooks/useInput";
 import Confirmation from "./Confirmation";
+import { motion } from "framer-motion";
 const Form = () => {
   const [lastClickedCell, setLastClickedCell] = useState("");
   const [showData, setShowData] = useState(false);
@@ -113,7 +114,11 @@ const Form = () => {
       )}
       {showBookingConfirm && <Confirmation onClose={setShowBookingConfirm} />}
       <form className={styles.form} onSubmit={onSubmitHandler}>
-        <div className={styles.formFirstLine}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={styles.formFirstLine}
+        >
           <div className={styles.formFirstLineOne}>
             <label htmlFor="name"></label>
             <input
@@ -142,8 +147,12 @@ const Form = () => {
               placeholder="Enter your telephone"
             />
           </div>
-        </div>
-        <div className={styles.formSecondLine}>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={styles.formSecondLine}
+        >
           <div className={styles.formSecondLineOne}>
             <label htmlFor="date"></label>
             <input
@@ -174,9 +183,21 @@ const Form = () => {
               }
             />
           </div>
-        </div>
+        </motion.div>
         <div className={styles.timeAndAdvice}>
-          <div className={styles.timeCells}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { staggerChildren: 0.1 },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            className={styles.timeCells}
+          >
             {[...Array(16)].map((_, index) => {
               const hours = Math.floor(index / 2) + 16;
               const minutes = (index % 2) * 30;
@@ -189,28 +210,40 @@ const Form = () => {
               }`;
 
               return (
-                <span
+                <motion.span
+                  variants={{
+                    hidden: { opacity: 0, y: 30, scale: 0.8 },
+                    visible: { opacity: 1, y: 0, scale: 1 },
+                  }}
+                  transition={{ type: "spring" }}
                   key={formattedTime}
                   className={cellClasses}
                   onClick={() => handleTimeCellClick(formattedTime)}
                 >
                   {formattedTime}
-                </span>
+                </motion.span>
               );
             })}
-          </div>
+          </motion.div>
           {timeHasError && (
             <p className={styles.errText}>Please choose a time!</p>
           )}
-          <input
+          <motion.input
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             type="text"
             className={styles.advice}
             placeholder="Any booking requests"
           />
         </div>
-        <button className={styles.button} type="submit">
+        <motion.button
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={styles.button}
+          type="submit"
+        >
           SUBMIT
-        </button>
+        </motion.button>
       </form>
     </div>
   );

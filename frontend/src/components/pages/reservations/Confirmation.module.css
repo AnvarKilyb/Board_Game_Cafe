@@ -10,7 +10,7 @@
 .confirmPopup{
     position: absolute;
     width: 80%;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, 0);
     background-color: var(--textColor);

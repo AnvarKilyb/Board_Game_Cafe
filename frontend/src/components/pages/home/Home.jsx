@@ -1,7 +1,7 @@
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 import Wrapper from "../../../UI/Wrapper";
-
+import { motion } from "framer-motion";
 const Home = () => {
   const MySvgIcon = () => (
     <svg
@@ -16,7 +16,12 @@ const Home = () => {
   return (
     <div className={styles.homePage}>
       <Wrapper>
-        <div className={styles.homeContent}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, type: "spring" }}
+          className={styles.homeContent}
+        >
           <div className={styles.homeContentDescription}>
             <p>
               STEP INTO A WORLD OF EXCITEMENT AND CAMARADERIE AT OUR BOARD GAME
@@ -41,7 +46,7 @@ const Home = () => {
               </text>
             </svg>
           </div>
-        </div>
+        </motion.div>
       </Wrapper>
     </div>
   );
