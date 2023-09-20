@@ -1,0 +1,22 @@
+.column {
+    float: left;
+    margin-top: 10px;
+    height: 100vh;
+    background: rgba(150, 137, 154, 0.3);
+}
+
+.filter {
+    width: 20%;
+    border-right: 1px solid gray;
+}
+
+.games {
+    width: 80%;
+    padding-left: 20px;
+}
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
