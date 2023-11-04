@@ -1,0 +1,10 @@
+.categorie {
+    border-bottom: solid gray 1px;
+}
+
+.item {
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 15px;
+}
