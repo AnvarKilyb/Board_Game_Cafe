@@ -1,10 +1,10 @@
 import styles from "./Game.module.css";
 
-const Game = () => {
+const Game = (props) => {
   return (
-    <>
-      Game
-    </>
+    <div className={styles.game}>
+      {props.game.title}
+    </div>
   );
 };
 export default Game;

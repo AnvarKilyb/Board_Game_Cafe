@@ -1,22 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .column {
-    float: left;
-    margin-top: 10px;
-    height: 100vh;
-    background: rgba(150, 137, 154, 0.3);
+    position: relative;
+    margin-top: 50px;
+    float: none;
 }
 
 .filter {
-    width: 20%;
-    border-right: 1px solid gray;
+    max-width: 25%;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    padding-left: 10px;
+    border: 2px solid white;
 }
 
 .games {
-    width: 80%;
-    padding-left: 20px;
+    max-width: 75%;
+    float: left;
 }
-  
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+
+.categorie {
+    border-bottom: solid gray 1px;
 }
