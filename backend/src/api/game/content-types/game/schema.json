@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "singularName": "game",
+    "pluralName": "games",
+    "displayName": "game",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "min_players": {
+      "type": "integer",
+      "default": 1,
+      "min": 1
+    },
+    "min_time": {
+      "type": "integer",
+      "min": 1,
+      "default": 30
+    },
+    "count": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 0
+    },
+    "categories": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "max_players": {
+      "type": "integer",
+      "default": 4,
+      "min": 1
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "max_time": {
+      "type": "integer",
+      "default": 90,
+      "min": 1
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "game"
+    },
+    "carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cart.cart",
+      "mappedBy": "games"
+    },
+    "price": {
+      "type": "integer",
+      "default": 50
+    }
+  }
+}

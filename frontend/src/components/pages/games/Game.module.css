@@ -1,0 +1,142 @@
+.all {
+    min-height: calc(100vh - 70.4px);
+    background: url('../../../assets/black-concrete-wall.jpg') center;
+    background-size: cover;
+}
+
+.link {
+    margin: 1rem;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.image {
+    float: left;
+    max-width: 25%;
+    max-height: auto;
+    margin: 30px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.imageInner {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.info {
+    max-width: 75%;
+    margin-top: 50px;
+    float: left;
+}
+
+.data {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid silver;
+    width: max-content;
+}
+
+.desc {
+    margin-bottom: 10px;
+    display: flex;
+    text-align: justify;
+    width: 500px;
+}
+
+.btn {
+    height: 30px;
+    width: 80px;
+    border: none;
+    border-radius: 16px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(174,60,60,0.8);
+    color: white;
+}
+
+.comments_block {
+    float: left;
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.inputField {
+    margin-bottom: 20px;
+}
+
+.user {
+    font-size: 12px;
+}
+
+.text {
+    font-size: 15px;
+}
+
+textarea {
+    margin: 10px;
+    margin-bottom: 0px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    float: inline-start;
+}
+
+.sendmsg {
+    height: 30px;
+    width: 80px;
+    margin: 10px;
+    margin-bottom: 30px;
+    background-color: rgba(174,60,60,0.8);
+    color: white;
+    border: none;
+}
+
+.btncart {
+    height: 50px;
+    width: 150px;
+    border: none;
+    border-radius: 16px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: rgba(174,60,60,0.8);
+    color: white;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btncart:hover {
+    background-color: rgb(174, 60, 60);
+    transform: scale(1.2);
+}
+
+.btn_none {
+    height: 50px;
+    width: 150px;
+    border: none;
+    border-radius: 16px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: rgba(174,60,60,0.8);
+    color: white;
+    font-size: 20px;
+}
