@@ -54,17 +54,26 @@
 .title{
     padding: 0.5rem;
 }
+.date{
+    padding: 0.5rem;
+    margin-top: 1.5rem;
+}
 
 .description{
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
-    height: 6rem;
+    height: 10rem;
     padding: 0.5rem;
 }
 
-input, textarea{
+input{
+    background-color: var(--textColor);
+    font-size: 1rem;
+    border: none;
+}
+textarea{
     background-color: var(--textColor);
     font-size: 1rem;
     border: none;

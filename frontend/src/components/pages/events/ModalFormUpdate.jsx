@@ -5,32 +5,36 @@
  * 
  */
 
-import React, { useState, useCallback } from 'react';
-import styles from "./ModalForm.module.css";
+import React, { useState, useEffect } from 'react';
+import styles from './ModalFormUpdate.module.css';
 
-function ModalForm({ isOpen, onClose, onSubmit }) {
+const ModalFormUpdate = ({ isOpen, onClose, onSubmit, eventData }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     date: '',
-    logo: null
+    // ... add other fields
   });
 
+  useEffect(() => {
+    // Populate the form data when eventData changes (for editing)
+    if (eventData) {
+      setFormData({
+        title: eventData.attributes.title,
+        description: eventData.attributes.description,
+        date: eventData.attributes.date,
+        // ... populate other fields
+      });
+    }
+  }, [eventData]);
 
-  
-  const handleInputChange = useCallback((e) => {
-    const { name, value, files } = e.target;
-    
-    // If the input is a file input (logo), set the file in formData
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: name === 'logo' ? files[0] : value,
-    }));
-  }, []);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData.logo);
     onSubmit(formData);
     onClose();
   };
@@ -47,7 +51,7 @@ function ModalForm({ isOpen, onClose, onSubmit }) {
         </span>
         <form onSubmit={handleSubmit}>
           <div className={styles.formField}>
-            <ul className={styles.formLabel}>Create Event</ul>
+            <ul className={styles.formLabel}>Edit event</ul>
           </div>
           <div className={styles.formField}>
             <label htmlFor='title'/>
@@ -55,12 +59,12 @@ function ModalForm({ isOpen, onClose, onSubmit }) {
                 name="title" 
                 value={formData.title} 
                 onChange={handleInputChange} 
-                placeholder='Enter events title' 
+                placeholder='Enter new events title' 
                 className={styles.title}/>
           </div>
           <div className={styles.formField}>
           <label htmlFor='description'/>
-              <input type="text" 
+              <textarea type="text" 
                 name="description"
                 value={formData.description} 
                 onChange={handleInputChange} 
@@ -74,19 +78,9 @@ function ModalForm({ isOpen, onClose, onSubmit }) {
                 name="date"
                 value={formData.date}
                 onChange={handleInputChange}
-                className={styles.input}
+                className={styles.date}
               />
             </div>
-            {/* <div className={styles.formField}>
-              <label htmlFor='logo'></label>
-              <input
-                type="file"
-                name="logo"
-                accept="image/*"
-                onChange={handleInputChange}
-                className={styles.input}
-              />
-            </div> */}
           <div className={styles.formField}>
             <button type="submit" className={styles.button}>Submit</button>
           </div>
@@ -96,6 +90,6 @@ function ModalForm({ isOpen, onClose, onSubmit }) {
     </div>
     </div>
   );
-}
+};
 
-export default ModalForm;
+export default ModalFormUpdate;

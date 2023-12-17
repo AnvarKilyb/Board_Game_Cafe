@@ -1,3 +1,10 @@
+/**
+ * Author: Anvar Kilybayev
+ * Login: xkilyb00
+ * Date: 17.12.2023
+ * 
+ */
+
 .eventPage::before{
   content: "";
   position: fixed;
@@ -6,18 +13,18 @@
   width: 100%;
   height: calc(100vh - 81px);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent, transparent, rgba(0, 0, 0, 0.9)),
-              url('../../../assets/event-back.jpg');
+              url('../../../assets/black-concrete-wall.jpg');
   background-size: cover;
   filter: grayscale(100%) blur(5px);
   z-index: -1;
 }
 
 .eventPage{
-  height: calc(100vh - 81px);
+  height: calc(100vh - 162px);
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 81px;
+  margin-top: 162px;
 
 }
 
@@ -33,11 +40,11 @@
 }
 
 .eventBarContent{
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 .eventBarContent nav{
   display: flex;
@@ -52,13 +59,13 @@
   border: 1px solid var(--redColor);
   border-radius: 1rem;
   display: block;
-  padding: .5rem 1rem;
+  padding: .5rem .5rem;
   gap: 1rem;
   font-size: 18px;
   fill: var(--redColor);
   text-decoration: none;
   transition: all .2s linear;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 
@@ -144,6 +151,30 @@
     overflow: hidden;
     transition: max-height 0.75s ease-in-out;
   }
+
+.cardButton {
+    background-color: transparent;
+    color: var(--redColor);
+    border: 1px solid var(--redColor);
+    border-radius: 1rem;
+    display: none; /* Initially hide the button */
+    padding: .5rem .75rem;
+    gap: 1rem;
+    font-size: 18px;
+    fill: var(--redColor);
+    text-decoration: none;
+    transition: all .2s linear;
+    margin-top: 1rem;
+}
+
+.card:hover .cardButton {
+    display: block; /* Show the button when the card is hovered */
+    transition: all .2s linear;
+}
+
+.cardButton:hover {
+    transform: scale(1.05);
+}
 
 .card:hover .cardDescription {
     max-height: 100%;

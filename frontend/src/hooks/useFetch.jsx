@@ -1,3 +1,10 @@
+/**
+ * Author: Anvar Kilybayev
+ * Login: xkilyb00
+ * Date: 17.12.2023
+ * 
+ */
+
 import { useCallback, useEffect, useState } from "react";
 
 const useFetch = (url) => {
