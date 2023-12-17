@@ -75,7 +75,7 @@
     color: var(--redColor);
 }
 .emptySpace{
-    height: 70px;
+    height: 80px;
 }
 @media only screen and (max-width: 768px){
     .navBtn{
@@ -115,7 +115,7 @@
         font-weight: 300;
     }
     .emptySpace{
-        height: 81px;
+        height: 82px;
     }
 }
 

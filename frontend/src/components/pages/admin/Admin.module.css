@@ -1,0 +1,22 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
+.filterButtons{
+    margin-top: 1rem;
+    display: flex;
+    gap: .5rem;
+    padding: 0rem 1rem;
+}
+.filterButtons button{
+    padding: .5rem;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: var(--redColor);
+    border: 1px solid var(--redColor);
+    cursor: pointer;
+}
+.filterButtons .chosenBtn{
+    background-color: var(--redColor);
+    border-color: black;
+    color: black;
+}

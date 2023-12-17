@@ -1,3 +1,6 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
 import styles from "./Form.module.css";
 import Popup from "./Popup";
 import { useState, useEffect } from "react";
@@ -9,6 +12,7 @@ const Form = () => {
   const [showData, setShowData] = useState(false);
   const [timeHasError, setTimeHasError] = useState(false);
   const [showBookingConfirm, setShowBookingConfirm] = useState(false);
+  const [note, setNote] = useState("");
   useEffect(() => {
     if (lastClickedCell !== "") {
       setTimeHasError(false);
@@ -100,6 +104,7 @@ const Form = () => {
             enteredTel,
             enteredDate,
             enteredPeople,
+            note,
             lastClickedCell,
           }}
           reset={{
@@ -107,6 +112,7 @@ const Form = () => {
             resetTelInput,
             resetDateInput,
             resetPeopleInput,
+            setNote,
             setLastClickedCell,
           }}
           onConfirm={setShowBookingConfirm}
@@ -215,7 +221,6 @@ const Form = () => {
                     hidden: { opacity: 0, y: 30, scale: 0.8 },
                     visible: { opacity: 1, y: 0, scale: 1 },
                   }}
-                  transition={{ type: "spring" }}
                   key={formattedTime}
                   className={cellClasses}
                   onClick={() => handleTimeCellClick(formattedTime)}
@@ -234,6 +239,8 @@ const Form = () => {
             type="text"
             className={styles.advice}
             placeholder="Any booking requests"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
           />
         </div>
         <motion.button

@@ -1,3 +1,6 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
 import styles from "./Reservations.module.css";
 import Wrapper from "../../../UI/Wrapper";
 import Form from "./Form";

@@ -1,3 +1,6 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
 import styles from "./Confirmation.module.css";
 import { useState } from "react";
 const Confirmation = (props) => {

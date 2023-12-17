@@ -1,3 +1,6 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
 import { useState, useEffect, useCallback } from "react";
 import Wrapper from "../../../UI/Wrapper";
 import styles from "./Menu.module.css";

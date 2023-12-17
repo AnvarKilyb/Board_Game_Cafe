@@ -1,3 +1,6 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 import Wrapper from "../../../UI/Wrapper";

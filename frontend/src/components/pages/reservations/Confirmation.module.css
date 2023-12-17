@@ -1,3 +1,6 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
 .confirmWrapper{
     position: fixed;
     top: 0;
@@ -20,6 +23,7 @@
     align-items: center;
     color: black;
     z-index: 9999;
+    max-width: 1280px;
 }
 .confirmPopup h2{
     text-align: center;

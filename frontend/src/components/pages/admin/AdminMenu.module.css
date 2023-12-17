@@ -1,0 +1,108 @@
+/*
+Author: Pavlo Kornieiev, xkorni03
+*/
+@font-face {
+    font-family: 'LogoFont'; /* Define the font family name */
+    src: url('../../../assets/logoFont.otf') format('opentype'); /* Specify the path to the font file */
+  }
+  .menuWrapper{
+    padding: 0rem 1rem;
+  }
+
+  .h1{
+    font-family: 'LogoFont';
+    font-size: 2rem;
+    font-weight: 100;
+    margin-top: 2rem;
+  }
+  .form {
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: 1px dotted var(--textColor);
+  }
+  .form select{
+    padding: 1rem;
+    background-color: var(--textColor);
+  }
+  .form input {
+    padding: 1rem;
+  }
+  .form button{
+    padding: .5rem;
+    background-color: var(--redColor);
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all .1s linear;
+    font-size: 1.1rem;
+  }
+  .menu{
+    padding-bottom: 6rem;
+}
+.menu select{
+    padding: .75rem;
+    font-size: 1.1rem;
+    margin-top: 4rem;
+    background-color: black;
+    color: var(--redColor);
+    border: 1px dotted var(--textColor);
+}
+.categoryName{
+    font-size: 2rem;
+    font-family: 'LogoFont';
+    font-weight: 100;
+    color: var(--redColor);
+}
+.category{
+    list-style: none;
+}
+.categoryContent {
+    margin-top: 2rem;
+}
+.elem{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px dotted var(--textColor);
+    padding: 1rem;
+}
+.elem h4{
+    font-size: 1.5rem;
+}
+.elem p {
+    text-align: start;
+    font-size: 1rem;
+    max-width: 600px;
+}
+.elem span {
+    font-size: 1.125rem;
+}
+.deleteBtn{
+    padding: .5rem;
+    background-color: black;
+    color: var(--redColor);
+    border: 1px solid var(--redColor);
+    cursor: pointer;
+    transition: all .1s linear;
+    font-size: 1.1rem;
+}
+.deleteBtn:hover{
+    transform: scale(1.05);
+}
+.priceAndDelete{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+  
+@media only screen and (min-width: 768px){
+    .category{
+        margin-top: 4rem;
+    }
+}
