@@ -16,6 +16,6 @@ npm run develop
 
 ```bash
 cd .\frontend\
-npm run build
+npm run install
 npm run dev
 ```
