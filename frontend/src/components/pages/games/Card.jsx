@@ -1,6 +1,6 @@
 import styles from "./Card.module.css"
 import { Link } from "react-router-dom";
-import { useState, useContext, createContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../../App";
 
 const headers = { "Content-Type": "application/json" };
@@ -28,7 +28,6 @@ function Card(props) {
                 const data = await response.json();
                 const data2 = await response2.json();
 
-                console.log(data2)
                 if (!data.data.length) {
                     await fetch('http://localhost:1337/api/carts/1', {
                         headers, 

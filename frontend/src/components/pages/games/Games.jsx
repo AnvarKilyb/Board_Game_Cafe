@@ -30,7 +30,6 @@ const Games = () => {
   if (error) return <p>Sorry, we have a problem.</p>
   
   const handlePage = (event) => {
-    console.log(event.target.id);
     if (event.target.id === "next") {
       setPage(page + 1);
     } else if (event.target.id === "before") {
@@ -78,6 +77,7 @@ const Games = () => {
   };
 
   const handleChange = async (data) => {
+    console.log(data);
 
     let v = range;
     if (data.target.id === "range") {
@@ -98,6 +98,7 @@ const Games = () => {
     if (v !== 0) {
       cmd += '&filters[$and][0][min_players][$lte]='+v+'&filters[$and][1][max_players][$gte]='+v;
     }
+
     console.log(cmd);
 
     try{
@@ -109,6 +110,7 @@ const Games = () => {
 
       if(response.ok){
         const data = await response.json();
+        console.log(data);
         updateData(data);
       }
     }catch(error){

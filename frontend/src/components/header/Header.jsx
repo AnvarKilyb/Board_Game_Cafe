@@ -49,10 +49,8 @@ const Header = (props) => {
   }
 
   if (cartState) {
-    console.log("header before", cartState);
     refreshCart();
     cartFalse();
-    console.log("header after", cartState);
   }
 
   const buyGames = async (data) => {
@@ -145,9 +143,6 @@ const Header = (props) => {
         console.error('event creation error', error);
       }
     }
-
-    console.log(data);
-
   }
   
   const Cart = (props) => {

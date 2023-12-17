@@ -63,13 +63,12 @@
       "default": 30,
       "min": 15
     },
-    "categories": {
-      "type": "string",
-      "private": true
-    },
     "count": {
       "type": "integer",
       "default": 1
+    },
+    "categories": {
+      "type": "string"
     }
   }
 }

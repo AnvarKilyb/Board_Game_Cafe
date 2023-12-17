@@ -97,9 +97,7 @@ const Game = () => {
                 const dataR = await response.json();
                 const dataR2 = await response2.json();
 
-                console.log(dataR)
                 if (!dataR.data.length) {
-                    console.log(dataR2)
                     await fetch('http://localhost:1337/api/carts/1', {
                         headers, 
                         method: "PUT",
