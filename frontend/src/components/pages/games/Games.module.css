@@ -1,29 +1,37 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.column {
-    position: relative;
-    margin-top: 50px;
-    float: none;
+.all {
+    display: flex;
+    min-height: calc(100vh - 70.4px);
+    background: url('../../../assets/black-concrete-wall.jpg') center;
+    background-size: cover;
 }
 
 .filter {
-    max-width: 25%;
-    height: auto;
-    float: left;
-    margin-left: 20px;
-    padding-left: 10px;
-    border: 2px solid white;
+    display: contents;
+    order: -1;
 }
 
 .games {
-    max-width: 75%;
-    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 200px);
+    flex-grow: 1;
 }
 
-.categorie {
-    border-bottom: solid gray 1px;
+.pages {
+    display: flex;
+    justify-content: center;
+}
+
+.page {
+    display: block;
+    margin: 10px 10px;
+    padding: 0px 10px;
+    height: 30px;
+    border: none;
+    border-radius: 16px;
+    text-align: center;
+    background-color: rgba(174,60,60,0.8);
+    color: white;
 }

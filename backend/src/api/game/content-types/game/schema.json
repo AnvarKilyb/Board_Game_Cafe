@@ -4,31 +4,72 @@
   "info": {
     "singularName": "game",
     "pluralName": "games",
-    "displayName": "Game"
+    "displayName": "Game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
     },
     "description": {
       "type": "text"
     },
-    "logo": {
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "price": {
       "type": "decimal"
+    },
+    "carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cart.cart",
+      "mappedBy": "games"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "game"
+    },
+    "min_players": {
+      "type": "integer",
+      "min": 1,
+      "default": 1
+    },
+    "max_players": {
+      "type": "integer",
+      "min": 1
+    },
+    "min_time": {
+      "type": "integer",
+      "default": 15,
+      "min": 15
+    },
+    "max_time": {
+      "type": "integer",
+      "default": 30,
+      "min": 15
+    },
+    "categories": {
+      "type": "string",
+      "private": true
+    },
+    "count": {
+      "type": "integer",
+      "default": 1
     }
   }
 }

@@ -75,7 +75,7 @@
     color: var(--redColor);
 }
 .emptySpace{
-    height: 80px;
+    height: 70px;
 }
 @media only screen and (max-width: 768px){
     .navBtn{
@@ -98,8 +98,9 @@
     }
     .headerContent .responsiveNav{
         transform: none;
+    
     }
-    .ul{
+    .responsiveNav ul{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -114,6 +115,115 @@
         font-weight: 300;
     }
     .emptySpace{
-        height: 82px;
+        height: 81px;
     }
+}
+
+.cart{
+    display: flex;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    font-size: 2rem;
+    font-weight: 100;
+    transition: all .2s linear;
+    padding: 5px;
+    padding-left: 2rem;
+}
+
+.cart:hover{
+    transform: translateY(-1px) scale(1.05);
+    color: var(--redColor);
+}
+
+.cartInner {
+    width: 350px;
+    position: absolute;
+    right: 9.5%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid silver;
+}
+
+.carthead {
+    font-size: 20px;
+    border-bottom: 1px solid silver;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    max-height: 70px;
+    border-bottom: 1px solid silver;
+}
+
+.img {
+    margin: 5px 5px;
+    object-fit: contain;
+    width: 40px;
+    height: 40px;
+}
+
+.txt {
+    width: 150px;
+}
+
+.btn {
+    color: white;
+    background-color: rgb(174,60,60);
+    border-color: 1px solid white;
+    border-radius: 10px;
+    height: 23px;
+    width: 60px;
+}
+
+.headerC {
+    display: flex;
+}
+
+.buyBtn {
+    height: 25px;
+    width: 60px;
+    display: block;
+    margin-left: auto;
+    color: white;
+    background-color: rgb(174,60,60);
+    border-color: 1px solid white;
+    border-radius: 10px;
+}
+
+.totalPrice {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.days {
+    display: flex;
+    border: 1px solid silver ;
+    margin: 0px 3px;
+}
+
+.daysBtn {
+    background: none;
+    border: none;
+    color: white;
+    margin: 0px 3px;
+}
+
+.cartCount {
+    position: relative;
+    display: flex;
+    top: -45px;
+    left: 60px;
+    background-color: rgb(174,60,60);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    text-align: center;
+    padding-left: 4px;
 }
