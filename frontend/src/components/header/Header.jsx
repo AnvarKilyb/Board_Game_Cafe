@@ -15,16 +15,17 @@ const Header = (props) => {
   const [ showcart, setShowcart ] = useState(false);
   const { loading, error, data, updateData } = useFetch('http://localhost:1337/api/carts?filters[user][username][$eq]=Ivan Golikov&populate[games][populate][0]=photo')    
 
+  const showNavbar = () => {
+    navRef.current.classList.toggle(styles.responsiveNav);
+  };
+
+  // Author: Ivan Golikov (xgolik00)
   let cartC = 0;
   try {
     cartC = data.data[0].attributes.games.data.length;
   } catch {
 
   }
-
-  const showNavbar = () => {
-    navRef.current.classList.toggle(styles.responsiveNav);
-  };
 
   const showCart = () => {
     setShowcart(!showcart);
@@ -203,6 +204,7 @@ const Header = (props) => {
               <button className={styles.navBtn} onClick={showNavbar}>
                 <FaBars />
               </button>
+              {/* Author: Ivan Golikov (xgolik00) */}
               <div>
                 <div>
                   <button className={styles.cart} onClick={showCart}> <LuShoppingCart /> </button>

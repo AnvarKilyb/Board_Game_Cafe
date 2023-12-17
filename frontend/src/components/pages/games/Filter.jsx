@@ -1,3 +1,5 @@
+// Author: Ivan Golikov (xgolik00)
+
 import styles from "./Filter.module.css";
 import React, { useState } from 'react';
 

@@ -1,3 +1,5 @@
+// Author: Ivan Golikov (xgolik00)
+
 import styles from "./Games.module.css";
 import useFetch from "../../../../hooks/useFetch";
 import Filter from "./Filter";

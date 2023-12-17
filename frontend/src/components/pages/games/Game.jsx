@@ -1,4 +1,6 @@
-import { Link, useParams } from 'react-router-dom';
+// Author: Ivan Golikov (xgolik00)
+
+import { useParams } from 'react-router-dom';
 import useFetch from "../../../../hooks/useFetch";
 import styles from './Game.module.css';
 import { useState, useContext, createContext } from "react";
