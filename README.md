@@ -8,6 +8,7 @@ Before launching the application, it is necessary to download additional compone
 
 ```bash
 cd .\backend\
+npm install
 npm run develop
 ```
 
