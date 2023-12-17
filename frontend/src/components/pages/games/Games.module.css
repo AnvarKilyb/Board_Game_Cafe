@@ -5,6 +5,7 @@
     min-height: calc(100vh - 70.4px);
     background: url('../../../assets/black-concrete-wall.jpg') center;
     background-size: cover;
+    margin-top: 10px;
 }
 
 .filter {
